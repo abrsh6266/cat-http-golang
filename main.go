@@ -16,4 +16,11 @@ func main(){
 		log.Fatal(err)
 	}
 	fmt.Println(string(robots))
+	http.HandleFunc("/",func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("abrsh xo9"))
+	})
+	errr := http.ListenAndServe(":8080",nil)
+	if errr != nil {
+		panic(errr.Error())
+	}				
 }
